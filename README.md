@@ -7,3 +7,7 @@ this project has very basic programming, so you can do it
 3. install nodejs if you have not installed it
 4. on your terminal (directory of project) typing 'npm install'
 5. and 'npm start' to run on your machine
+
+## # to test
+1. 'to start'
+2. 'npm test'
