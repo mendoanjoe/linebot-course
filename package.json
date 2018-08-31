@@ -1,0 +1,22 @@
+{
+  "name": "linebot-course",
+  "version": "1.0.0",
+  "description": "course",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mendoanjoe/linebot-course.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Firmansyah Nuralif Rohman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mendoanjoe/linebot-course/issues"
+  },
+  "homepage": "https://github.com/mendoanjoe/linebot-course#readme"
+}
