@@ -35,6 +35,45 @@ app.get('/', (req, res) => {
 });
 
 /*
+* Route Webhook End Point
+* Send request on : host:port/webhook
+*/
+app.post('/webhook', line.middleware(config), (req, res) => {
+  Promise
+    .all(req.body.events.map(handleEvent))
+    .then((result) => res.json(result))
+    .catch((err) => {
+      console.error(err);
+      res.status(500).end();
+    });
+});
+
+/*
+* Webhook Event Request Handler
+* To : handle message coming from line server
+*/
+function handleEvent(event) {
+  /*
+  * only get type = message and message.type = text
+  * Url : https://developers.line.me/en/reference/messaging-api/#message-event
+  */
+  if (event.type !== 'message' || event.message.type !== 'text') {
+    return Promise.resolve(null);
+  }
+
+  /*
+  * Creating chat response to line server
+  * event.message.text is text from user
+  */
+  const echo = { type: 'text', text: event.message.text };
+
+  /*
+  * Reply request to user on line server
+  */
+  return client.replyMessage(event.replyToken, echo);
+}
+
+/*
 * Start Server
 */
 const port = process.env.PORT || 3000;
