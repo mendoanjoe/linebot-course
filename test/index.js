@@ -1,8 +1,8 @@
 const axios = require('axios');
 
 const port = process.env.PORT || 3000;
-const host = process.env.URL || "http://localhost"
-const serviceUrl = host+':'+port 
+const host = process.env.URL || "http://localhost";
+const serviceUrl = host+':'+port;
 
 module.exports = {
   postEvent() {

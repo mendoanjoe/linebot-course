@@ -1,4 +1,4 @@
-/* 
+/*
 * Module Loads
 */
 const app = require('express')();
@@ -59,7 +59,7 @@ function handleEvent(event) {
   */
   if (event.type !== 'message' || event.message.type !== 'text') {
     return Promise.resolve(null);
-  }
+  };
 
   /*
   * Creating chat response to line server
@@ -71,7 +71,30 @@ function handleEvent(event) {
   * Reply request to user on line server
   */
   return client.replyMessage(event.replyToken, echo);
-}
+};
+
+/*
+* Function to send message type text to line server
+* require (@event, content)
+*/
+function sendMessageText(event, content, args = 0, data = null) {
+  const templateText = {
+    type: 'text',
+    text: content
+  };
+
+  saveMessageText(content, args, data);
+  return client.replyMessage(event.replyToken, templateText);
+};
+
+/*
+* Function to history chat
+* require (@event, content)
+*/
+function saveMessageText(content, args = 0, data = null){
+  // all procedure to store data
+  console.log(content, args, data);
+};
 
 /*
 * Start Server

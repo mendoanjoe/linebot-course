@@ -1,11 +1,11 @@
 const expect = require('chai').expect;
 const nock = require('nock');
 
-const postEvent = require('./index').postEvent
+const postEvent = require('./index').postEvent;
 
 const port = process.env.PORT || 3000;
-const host = process.env.URL || "http://localhost"
-const serviceUrl = host+':'+port 
+const host = process.env.URL || "http://localhost";
+const serviceUrl = host+':'+port;
 
 describe('Post webhook test', () => {
   beforeEach(() => {
@@ -32,8 +32,8 @@ describe('Post webhook test', () => {
       .then(response => {
         expect(typeof response).to.equal('object');
 
-        expect(response.type).to.equal('text')
-        expect(response.text).to.equal('Hello, world!')
+        expect(response.type).to.equal('text');
+        expect(response.text).to.equal('Hello, world!');
       });
   });
 });
