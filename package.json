@@ -22,7 +22,7 @@
   "homepage": "https://github.com/mendoanjoe/linebot-course#readme",
   "dependencies": {
     "@line/bot-sdk": "^6.2.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "express": "^4.16.3",
     "morgan": "^1.9.1"
   },
